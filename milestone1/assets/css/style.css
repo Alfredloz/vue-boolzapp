@@ -1,0 +1,35 @@
+/* general settings */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+/* /general setting */
+/* utility classes */
+.d_flex{
+    display: flex;
+}
+/* /utility classes */
+/* backgrounds for app */
+.bg_ban_top{
+   position: relative;
+   background-color: rgb(16, 134, 117);
+   height: 8rem;
+   width: 100%;
+   justify-content: space-around;
+}
+.bg_ban_bottom{
+    background-color: rgb(208, 211, 204	);
+    height: 60rem;
+    width: 100%;
+}
+/* /backgrounds for app */
+/* userbox & chatbox */
+/* /userbox & chatbox */
+.container_app{
+    position: absolute;
+    margin-top: 40px;
+    height: 45rem;
+    width: 60rem;
+    border: 1px solid black;    
+}
