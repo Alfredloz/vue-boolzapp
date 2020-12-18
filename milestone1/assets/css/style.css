@@ -4,6 +4,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+body{
+    background-color: rgb(208, 211, 204	);
+}
 /* /general setting */
 /* utility classes */
 .d_flex{
@@ -14,22 +17,42 @@
 .bg_ban_top{
    position: relative;
    background-color: rgb(16, 134, 117);
-   height: 8rem;
+   height: 7.5rem;
    width: 100%;
    justify-content: space-around;
 }
-.bg_ban_bottom{
-    background-color: rgb(208, 211, 204	);
-    height: 60rem;
-    width: 100%;
-}
+
 /* /backgrounds for app */
 /* userbox & chatbox */
-/* /userbox & chatbox */
+/* /userbox */
 .container_app{
     position: absolute;
     margin-top: 40px;
     height: 45rem;
-    width: 60rem;
-    border: 1px solid black;    
+    width: 70rem;
 }
+.user_box{
+    width: 40%;
+    height: 100%;
+    border: 1px solid red;
+}
+/* login user */
+.login_user{
+    width: 100%;
+    height: 11%;
+    background-color: rgb(229, 229,	229	);
+}
+.notify_box{
+    width: 100%;
+    height: 10%;
+    background-color: rgb(126, 210, 251	);
+}
+/* /login user */
+/* /userbox */
+/* chatbox */
+.chat_box{
+    width: 60%;
+    height: 100%;
+    border: 1px solid red;
+}
+/* /chatbox */
