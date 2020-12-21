@@ -72,10 +72,7 @@ let app = new Vue({
                 text: 'Ah scusa!',
                 status: 'received'
                 }
-             ],
-                
-                
-                
+             ],              
             },
             {
             name: 'Andrea',
@@ -169,7 +166,13 @@ let app = new Vue({
                 this.userContent.push(this.messageUser);
                 this.messageUser = '';
                 console.log(this.userContent);
+                
             }
+            console.log(this.contacts.visible);
+        },
+        visibleChat (){
+            this.visible= false;
+            console.log(this.visible);
         }
     }
 })

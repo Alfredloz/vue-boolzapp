@@ -47,9 +47,10 @@
                     <!-- /search contacts -->
                     <!-- contacts -->
                     <div class="contacts bg_grey_white">
-                        <div class="contact_box" v-for="contact in contacts" @click="loadProfile">
+                        <div class="contact_box" v-for="(contact, index) in contacts" @click="loadProfile">
                             <img :src="contact.avatar" alt="">
-                            {{contact.name}}
+                            <span>{{contact.name}}</span>
+                            <span v-for="value in contact.messages">{{value.date}}</span>
                         </div>
                     </div>
                     <!-- /contacts -->
@@ -72,12 +73,12 @@
                         <i class="fas fa-ellipsis-v"></i>
                         </div>
                     </div>
-                    <div class="chat_box d_flex">
+                    <div class="chat_box d_flex" v-for="(contact, index) in contacts">
                         <div class="message_bot">
-                            <p>prova</p>
+                            <p class="white_box" v-for="value in contact.messages" v-if="value.status == 'received'">{{value.text}}</p>
                         </div>
                         <div class="message_user">   
-                            <p v-for="content in userContent">{{content}}</p>
+                            <p class="green_box" v-for="value in contact.messages" v-if="value.status =='sent'">{{value.text}}</p>
                         </div>
                     </div>
                     <div class="sending_box d_flex">
@@ -86,9 +87,6 @@
                         <i class="fas fa-microphone"></i>
                     </div>
             </div>
-        </div>
-        <div class="bg_ban_bottom">
-        
         </div>
     </section>
     <!-- /vuejs section app -->
