@@ -29,7 +29,6 @@ i {
     margin: 1rem;
 }
 .white_box{
-    text-align: left;
     border-radius: 5px;
     background-color: rgb(245, 249, 243);
     padding: 1rem;
@@ -158,6 +157,11 @@ i {
    background-color: rgb(229, 229,	229	);
   justify-content: space-between;
   align-items: center;
+}
+.contact_img img {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
 }
 .chat_opt i{
  padding: 0.6rem;

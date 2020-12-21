@@ -47,10 +47,10 @@
                     <!-- /search contacts -->
                     <!-- contacts -->
                     <div class="contacts bg_grey_white">
-                        <div class="contact_box" v-for="(contact, index) in contacts" @click="loadProfile">
+                        <div class="contact_box" v-for="(contact, index) in contacts" @click="loadProfile(index)">
                             <img :src="contact.avatar" alt="">
                             <span>{{contact.name}}</span>
-                            <span v-for="value in contact.messages">{{value.date}}</span>
+                            <!-- <span v-for="value in contact.messages">{{value.date}}</span> -->
                         </div>
                     </div>
                     <!-- /contacts -->
@@ -58,12 +58,13 @@
                 <div class="chat_container">
                     
                     <div class="contact_opt bg_grey_white d_flex">
-                        <div class="contact_prof">
-                            <div class="contact_img" v-for="profile in contactProfiles">
-                                <img :src="profile.avatar" alt="">
+                        <div class="contact_prof" >
+                            <div class="contact_img">
+                                <img :src="contacts[activeUser].avatar" alt="">
+                                <span>{{contacts[activeUser].name}}</span>
                             </div>
-                            <div class="contact_name" v-for="profile in contactProfiles">
-                                <p>{{}}</p>
+                            <div class="contact_name" >
+                                <p></p>
                                 <p>orario</p>
                             </div>
                         </div>
@@ -73,12 +74,10 @@
                         <i class="fas fa-ellipsis-v"></i>
                         </div>
                     </div>
-                    <div class="chat_box d_flex" v-for="(contact, index) in contacts">
-                        <div class="message_bot">
-                            <p class="white_box" v-for="value in contact.messages" v-if="value.status == 'received'">{{value.text}}</p>
-                        </div>
-                        <div class="message_user">   
-                            <p class="green_box" v-for="value in contact.messages" v-if="value.status =='sent'">{{value.text}}</p>
+                    <div class="chat_box d_flex" >
+                        <div class="boxchat" v-for="(message, index) in contacts[activeUser].messages">
+                            <p class="white_box" v-if="message.status == 'received'">{{message.text}}</p>
+                            <p class="green_box" v-if="message.status == 'sent'">{{message.text}}</p>  
                         </div>
                     </div>
                     <div class="sending_box d_flex">
