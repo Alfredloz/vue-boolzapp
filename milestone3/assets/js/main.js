@@ -1,6 +1,17 @@
+// ● Aggiunta di un messaggio​: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+// ● Risposta dall’interlocutore: ​ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
 let app = new Vue({
     el: '#app',
     data:{
+        contactProfiles:[],
+        userContent:[],
+        messageUser:'',
+        activeUser: 0,
+        messageObj:{
+            date:'data da scegliere',
+            text: '',
+            status: 'sent',
+        },
         contacts: [
             {
                 name: 'Michele',
@@ -143,32 +154,19 @@ let app = new Vue({
                     ],
           
                     },
-
-
-        ],
-        contactProfiles:[],
-        userContent:[],
-        messageUser:'',
-        activeUser: 0,
+        ],      
         
     },
     methods:{
         loadProfile(index) { 
             this.activeUser = index;
          },
-        
-        // sendingMessage(){
-        //     if (this.messageUser.length > 0) {
-        //         this.messages.push(this.messageUser);
-        //         this.messageUser = '';
-        //         console.log(this.messages);
-                
-        //     }
-        //     console.log(this.contacts.visible);
-        // },
-        // visibleChat (){
-        //     this.visible= false;
-        //     console.log(this.visible);
-        // }
+        sendingMessage(){
+            if (this.messageUser.length > 0) {
+                this.messageObj.text = this.messageUser;
+                this.contacts[this.activeUser].messages.push(this.messageObj);
+                this.messageUser = '';
+            }
+        }
     }
 })
