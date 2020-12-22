@@ -3,14 +3,18 @@
 let app = new Vue({
     el: '#app',
     data:{
-        contactProfiles:[],
-        userContent:[],
+
         messageUser:'',
         activeUser: 0,
         messageObj:{
             date:'data da scegliere',
             text: '',
             status: 'sent',
+        },
+        messageBot:{
+            date:'data da scegliere',
+            text: 'ok',
+            status: 'received',
         },
         contacts: [
             {
@@ -161,12 +165,19 @@ let app = new Vue({
         loadProfile(index) { 
             this.activeUser = index;
          },
+         sendingMessageBot(){
+            this.contacts[this.activeUser].messages.push(this.messageBot);
+        },
         sendingMessage(){
             if (this.messageUser.length > 0) {
                 this.messageObj.text = this.messageUser;
                 this.contacts[this.activeUser].messages.push(this.messageObj);
                 this.messageUser = '';
+                setTimeout(this.sendingMessageBot, 1000);
+                
             }
-        }
+            
+        },
+        
     }
 })
