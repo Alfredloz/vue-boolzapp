@@ -42,12 +42,12 @@
                     <!-- search contacts -->
                     <div class="search_box d_flex bg_grey_white">
                         <i class="fas fa-search"></i>
-                        <input type="text" placeholder="cerca tra i tuoi contatti">
+                        <input type="text" placeholder="cerca tra i tuoi contatti" v-model="searchContact">
                     </div>
                     <!-- /search contacts -->
                     <!-- contacts -->
                     <div class="contacts bg_grey_white">
-                        <div class="contact_box" v-for="(contact, index) in contacts" @click="loadProfile(index)">
+                        <div class="contact_box" v-for="(contact, index) in filteredItems" @click="loadProfile(index)">
                             <img :src="contact.avatar" alt="">
                             <span>{{contact.name}}</span>
                             <!-- <span>{{message.date}}</span> -->
@@ -79,7 +79,7 @@
                             <p>
                                 {{message.text}}
                             </p>
-                            <!-- <p>{{message.date}}</p> -->
+                            <p>{{message.date}}</p>
                         </div>
                        
                     </div>
@@ -95,5 +95,6 @@
     <!-- js & vuejs -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="./assets/js/main.js"></script>
+    
 </body>
 </html>
