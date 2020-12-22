@@ -162,12 +162,17 @@ let app = new Vue({
             this.activeUser = index;
          },
          sendingMessageBot(){
-            this.contacts[this.activeUser].messages.push(this.messageBot);
+             let msgBot = {
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+                text: 'ok',
+                status: 'received',
+            };
+            this.contacts[this.activeUser].messages.push(msgBot);
         },
         sendingMessage(){
             if (this.messageUser.length > 0) {
                 let msgObjext = {
-                    date:'data da scegliere',
+                    date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                     text: this.messageUser,
                     status: 'sent',
                 };

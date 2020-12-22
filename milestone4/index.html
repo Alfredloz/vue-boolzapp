@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Boolzapp clone</title>
 </head>
 <body>
     <!-- vuejs sectio app -->
@@ -59,14 +59,14 @@
                     
                     <div class="contact_opt bg_grey_white d_flex">
                         <div class="contact_prof" >
-                            <div class="contact_img">
+                            <div class="contact_img d_flex">
                                 <img :src="contacts[activeUser].avatar" alt="">
-                                <span>{{contacts[activeUser].name}}</span>
+                                <div class="info_contact">
+                                    <span>{{contacts[activeUser].name}}</span>
+                                <p><small>ultimo accesso</small></p>
+                                </div>
                             </div>
-                            <div class="contact_name" >
-                                <p></p>
-                                <p>orario</p>
-                            </div>
+
                         </div>
                         <div class="chat_opt">
                         <i class="fas fa-search"></i>
@@ -75,11 +75,9 @@
                         </div>
                     </div>
                     <div class="chat_box d_flex" >
-                        <div class="" :class="message.status == 'sent'? 'green_box':'white_box'" v-for="(message, index) in contacts[activeUser].messages">
-                            <p>
-                                {{message.text}}
-                            </p>
-                            <p>{{message.date}}</p>
+                        <div class="chat_content" :class="message.status == 'sent'? 'green_box':'white_box'" v-for="(message, index) in contacts[activeUser].messages">
+                            <p>{{message.text}}</p>
+                            <p><small>{{message.date}}</small></p>
                         </div>
                        
                     </div>
@@ -95,6 +93,7 @@
     <!-- js & vuejs -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="./assets/js/main.js"></script>
-    
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script>dayjs().format()</script>
 </body>
 </html>
