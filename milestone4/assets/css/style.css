@@ -137,17 +137,35 @@ i {
 .contacts{
     height: calc(100% - 30%);
     width: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 .contact_box{
-    overflow-y: scroll;
-    padding: 2rem;
-    border-bottom: 1px solid rgb(196, 196, 196);
+    padding: 1.5rem;
+    border-bottom: 0.2px solid rgb(196, 196, 196);
+    justify-content: space-between;
 }
 .contact_box img{
-    width: 60px;
+    width: 65px;
     height: auto;
     border-radius: 50%;
+}
+.contact_box span:last-child{
+    color: rgb(169, 169, 169);
+}
+.name_msg{
+    flex-direction: column;
+    padding-left: 20px;
+}
+.name_msg > span:first-child {
+    font-size: 20px;
+}
+.name_msg span:last-child {
+    margin-top: 20px;
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: gray;
 }
 /* /contacts */
 /* /userbox */
@@ -165,6 +183,11 @@ i {
 }
 .info_contact {
     padding: 20px 10px;
+}
+.info_contact span:last-child{
+    display: block;
+    margin-top: 5px;
+    color: gray;
 }
 .contact_img img {
     width: 75px;

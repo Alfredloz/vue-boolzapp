@@ -6,11 +6,6 @@ let app = new Vue({
         messageUser:'',
         activeUser: 0,
         searchContact: '',
-        messageBot:{
-            date:'data da scegliere',
-            text: 'ok',
-            status: 'received',
-        },
         contacts: [
             {
                 name: 'Michele',
@@ -169,6 +164,7 @@ let app = new Vue({
             };
             this.contacts[this.activeUser].messages.push(msgBot);
         },
+        // funzione per caricare un messaggio nuovo con risposta!
         sendingMessage(){
             if (this.messageUser.length > 0) {
                 let msgObjext = {
@@ -183,6 +179,15 @@ let app = new Vue({
             }
             
         },
+        //funzioni per visualizzare gli ultimi messaggi e ora
+        lastMsg (i){
+            let x = this.contacts[i].messages.length - 1;
+            return this.contacts[i].messages[x].text;
+        },
+        lastHour (i){
+            let x = this.contacts[i].messages.length - 1;
+            return this.contacts[i].messages[x].date
+        },
         
     },
     computed:{
@@ -190,6 +195,11 @@ let app = new Vue({
             return this.contacts.filter((item)=>{
                 return item.name.toLowerCase().includes(this.searchContact.toLowerCase());
             });
-        }
+        },
+        // !da rivedere ultimo messaggio sulla chat di ogni singolo utente
+        // userHour(){
+        //     let x = this.contacts[i].messages.length - 1;
+        //     return this.contacts[i].messages[x].date
+        // }
     },
 })

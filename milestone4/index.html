@@ -47,40 +47,45 @@
                     <!-- /search contacts -->
                     <!-- contacts -->
                     <div class="contacts bg_grey_white">
-                        <div class="contact_box" v-for="(contact, index) in filteredItems" @click="loadProfile(index)">
+                        <div class="contact_box d_flex" v-for="(contact, index) in filteredItems" @click="loadProfile(index)">
                             <img :src="contact.avatar" alt="">
-                            <span>{{contact.name}}</span>
-                            <!-- <span>{{message.date}}</span> -->
+                            <div class="name_msg d_flex">
+                                <span>{{contact.name}}</span>
+                                <span>{{lastMsg(index)}}</span>
+                            </div>
+                            <span>{{lastHour(index)}}</span>
                         </div>
                     </div>
                     <!-- /contacts -->
                 </div>
                 <div class="chat_container">
-                    
+                    <!-- user cliccato info -->
                     <div class="contact_opt bg_grey_white d_flex">
                         <div class="contact_prof" >
                             <div class="contact_img d_flex">
                                 <img :src="contacts[activeUser].avatar" alt="">
                                 <div class="info_contact">
                                     <span>{{contacts[activeUser].name}}</span>
-                                <p><small>ultimo accesso</small></p>
+                                    <span><small>Ultimo accesso eseguito: {{lastHour(activeUser)}}</small></span>
                                 </div>
                             </div>
-
                         </div>
+                        <!-- user cliccato info -->
                         <div class="chat_opt">
                         <i class="fas fa-search"></i>
                         <i class="fas fa-paperclip"></i>
                         <i class="fas fa-ellipsis-v"></i>
                         </div>
                     </div>
+                    <!-- chat box messages -->
                     <div class="chat_box d_flex" >
                         <div class="chat_content" :class="message.status == 'sent'? 'green_box':'white_box'" v-for="(message, index) in contacts[activeUser].messages">
                             <p>{{message.text}}</p>
                             <p><small>{{message.date}}</small></p>
-                        </div>
-                       
+                        </div>                       
                     </div>
+                    <!-- chat box messages -->
+                    <!-- sending messages and settings -->
                     <div class="sending_box d_flex">
                         <i class="fas fa-icons"></i>
                         <input type="text" @keyup.13="sendingMessage" v-model="messageUser">
